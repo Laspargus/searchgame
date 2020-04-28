@@ -3,28 +3,10 @@ import PageForm from "./PageForm";
 const PageList = (argument = "") => {
   let pageContent = document.querySelector("#pageContent");
   let form = document.querySelector("#form");
-  // const geturl = () => {
-  //   //let search = document.getElementById("movie-search").value;
-  //   console.log("hey");
-  // };
 
   // PageForm();
   const preparePage = () => {
-    // PageForm();
-
-    document.querySelector("#form").innerHTML = `
-    <form id="searchmovie" class="justify-content-end mt-5 mb-5 row">
-      <div class="input-group col-md-6 align-self-end">
-        <div class="input-group-prepend">
-          <div style="background-color: #FFFF;" class="input-group-text">
-            <i class="fa fa-search"></i></div>
-          </div>
-          <input type="text" class="form-control" id="movie-search" placeholder="search Game..">
-        </div>
-      </div>
-      <a id="search-movie" type="submit" class="btn btn-primary">Go</a>
-    </form>
-        `;
+    PageForm();
 
     let cleanedArgument = argument.replace(/\s+/g, "-");
     let articles = "";
