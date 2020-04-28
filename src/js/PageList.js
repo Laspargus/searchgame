@@ -22,6 +22,11 @@ const PageList = (argument = "") => {
     </form>
         `;
 
+    const geturl = () => {
+      //let search = document.getElementById("movie-search").value;
+      console.log("hey");
+    };
+
     let cleanedArgument = argument.replace(/\s+/g, "-");
     let articles = "";
 

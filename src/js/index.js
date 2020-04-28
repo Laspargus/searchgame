@@ -15,8 +15,3 @@ const setRoute = () => {
 
 window.addEventListener("hashchange", () => setRoute());
 window.addEventListener("DOMContentLoaded", () => setRoute());
-
-const geturl = () => {
-  let search = document.getElementById("movie-search").value;
-  console.log(search);
-};
