@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/bootstrap";
+$red: rgb(255, 20, 20);
+@font-face {
+  font-family: "Big Noodles";
+  src: url("../fonts/big_noodle_titling.ttf");
+}
+
+p {
+  color: $red;
+}
+
+p {
+  color: $red;
+  font-family: "Big Noodles";
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.cardGame {
+  h1 {
+    font-size: 1rem !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+  }
+}
