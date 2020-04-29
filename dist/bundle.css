@@ -9948,18 +9948,30 @@ h3 {
   font-family: "Big Noodles";
   src: url(fonts/e2ebffa44fbb63381589b4c62164a7a7.ttf);
 }
-p {
-  color: #ff1414;
-}
-
-p {
-  color: #ff1414;
-  font-family: "Big Noodles";
-}
-
 body {
   background-color: black;
   color: white;
+}
+
+p {
+  font-size: 13px;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: 900;
+  color: red;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: red;
+  text-decoration: none;
+}
+
+h2 {
+  color: red;
+  font-weight: 900;
 }
 
 .cardGame h1 {

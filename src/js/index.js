@@ -14,8 +14,8 @@ const setRoute = () => {
   routes[path[0]](pageArgument);
 
   console.log(path[0]);
+  PageForm();
   if (path[0] == "" || path[0] == "pagelist") {
-    PageForm();
     PlatformSelect(pageArgument);
   }
   return true;
