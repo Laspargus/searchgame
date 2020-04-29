@@ -46,7 +46,7 @@ const PageList = (argument = "", platformId = "") => {
         });
     };
 
-    const GameHover = (game, event) => {
+    const GameHover = () => {
       console.log(game);
     };
 
