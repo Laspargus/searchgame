@@ -2,6 +2,8 @@ import "../sass/styles.scss";
 import routes from "./route";
 import "@fortawesome/fontawesome-free/js/fontawesome";
 import "@fortawesome/fontawesome-free/js/solid";
+import PlatformSelect from "./PlatformSelect";
+import PageForm from "./PageForm";
 
 let pageArgument;
 const setRoute = () => {
@@ -10,6 +12,12 @@ const setRoute = () => {
 
   var pageContent = document.getElementById("pageContent");
   routes[path[0]](pageArgument);
+
+  console.log(path[0]);
+  if (path[0] == "" || path[0] == "pagelist") {
+    PageForm();
+    PlatformSelect(pageArgument);
+  }
   return true;
 };
 

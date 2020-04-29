@@ -1,8 +1,8 @@
 import PageList from "./PageList";
 
 const PageForm = () => {
-  document.querySelector("#form").innerHTML = `
-    <form id="searchmovie" class="justify-content-end mt-5 mb-5 row">
+  form.innerHTML = `
+    <form id="searchmovie" class="justify-content-end mt-5 mb-5 mr-1 row">
       <div class="input-group col-md-6 align-self-end">
         <div class="input-group-prepend">
           <div style="background-color: #FFFF;" class="input-group-text">
@@ -16,7 +16,6 @@ const PageForm = () => {
         `;
 
   let button = document.querySelector("#search-movie");
-  console.log(button);
   button.addEventListener("click", (event) => {
     event.preventDefault();
     geturl();
@@ -24,7 +23,6 @@ const PageForm = () => {
 
   const geturl = () => {
     let contentSearch = document.querySelector("#movie-search").value;
-    console.log(contentSearch);
     PageList(contentSearch);
   };
 };

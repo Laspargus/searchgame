@@ -1,18 +1,15 @@
-import PageForm from "./PageForm";
+//import GameHover from "./GameHover";
 
-const PageList = (argument = "") => {
+const PageList = (argument = "", platformId = "") => {
   let pageContent = document.querySelector("#pageContent");
-  let form = document.querySelector("#form");
 
-  // PageForm();
   const preparePage = () => {
-    PageForm();
-
     let cleanedArgument = argument.replace(/\s+/g, "-");
     let articles = "";
 
     const fetchList = (url, argument) => {
       let finalURL = url;
+
       if (argument) {
         finalURL = url + "?search=" + argument;
       } else {
@@ -24,19 +21,33 @@ const PageList = (argument = "") => {
         .then((response) => response.json())
         .then((response) => {
           response.results.forEach((game) => {
-            articles += `
-                  <div class="col-sm-4 cardGame">
-                  
-                    <a class="" href = "#pagedetail/${game.id}">
-                    <img width="350px" src="${game.background_image}">
-                    </a>
-                    <h1 class="mt-3">${game.name}</h1>
-                  
-                  </div>
-                `;
+            let filter = false;
+
+            if (platformId) {
+              if (game.platforms !== null) {
+                game.platforms.forEach((array) => {
+                  if (array.platform.id == platformId) {
+                    filter = true;
+                  }
+                });
+              }
+            } else filter = true;
+            if (filter) {
+              articles += `
+                              <div id="cardGame" onmouseover="GameHover()" class="col-sm-4 cardGame">
+                                <a class="" href = "#pagedetail/${game.id}">
+                                <img width="350px" src="${game.background_image}">
+                                </a>
+                                <h1 class="mt-3">${game.name}</h1>
+                              </div>`;
+            }
           });
           document.querySelector(".page-list .articles").innerHTML = articles;
         });
+    };
+
+    const GameHover = (game, event) => {
+      console.log(game);
     };
 
     fetchList("https://api.rawg.io/api/games", cleanedArgument);
@@ -44,15 +55,14 @@ const PageList = (argument = "") => {
 
   const render = () => {
     pageContent.innerHTML = `
-      <section class="page-list">
-        <div id="form" class=""></div>
-        <div class="articles row">...loading</div>
-      </section>
-    `;
-
+          <section class="page-list">
+            <div class="articles row">...loading</div>
+          </section>
+        `;
     preparePage();
   };
 
   render();
 };
+
 export default PageList;
