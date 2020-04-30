@@ -45,7 +45,7 @@ const PageList = (
           for (let i = 0; i < number; i++) {
             game = response.results[i];
             articles += `
-                <div id="${game.id}" class="text-center col-sm-4 cardGame">
+                <div id="${game.id}" class="text-center col-md-4 cardGame">
                   <a class="" href = "#pagedetail/${game.id}">
                   <img id="${game.id}" width="350px" src="${game.background_image}">
                   </a>

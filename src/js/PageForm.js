@@ -3,7 +3,7 @@ import PageList from "./PageList";
 const PageForm = (platform, developer) => {
   form.innerHTML = `
     <form id="searchmovie" class="justify-content-end mt-5 mb-5 mr-1 row">
-      <div class="input-group col-md-6 align-self-end">
+      <div class="input-group col-10 col-md-6 align-self-end">
         <div class="input-group-prepend">
           <div style="background-color: #FFFF;" class="input-group-text">
             <i class="fa fa-search"></i></div>

@@ -9957,11 +9957,31 @@ p {
   font-size: 13px;
 }
 
+.gameImage,
+video,
+.screenshots,
+.videoyoutube {
+  width: 100%;
+  height: auto;
+}
+
 .logo {
   font-size: 40px;
   font-weight: 900;
   color: red;
   text-decoration: none;
+}
+@media (min-width: 600px) {
+  .logo {
+    font-size: 30px;
+    font-weight: 800;
+  }
+}
+@media (max-width: 599px) {
+  .logo {
+    font-size: 20px;
+    font-weight: 600;
+  }
 }
 
 .logo:hover {

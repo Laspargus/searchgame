@@ -44,7 +44,7 @@ const PageDetail = (argument) => {
           articleDOM.querySelector("#publisher").innerHTML = publishers[0].name;
           tags.forEach((element) => {
             articleDOM.querySelector("div#screenshot").innerHTML += `
-             <div class="col-md-4"><img width="300px" src=${element.image_background}></div>
+             <div class="col-md-4"><img class="screenshots" src=${element.image_background}></div>
             `;
           });
         });
@@ -76,14 +76,15 @@ const PageDetail = (argument) => {
           for (let i = 0; i < maxvideo; i++) {
             console.log(response.results[i].external_id);
             document.querySelector("#youtube").innerHTML += `
+            <div class="col-md-4 mt-3">
           <iframe
-            width="350"
-            height="200"
+            class="videoyoutube"
             src="https://www.youtube.com/embed/${response.results[i].external_id}"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-          ></iframe>`;
+          ></iframe>
+          </div>`;
           }
         });
     };
@@ -104,30 +105,30 @@ const PageDetail = (argument) => {
     pageContent.innerHTML = `
       <section class="page-detail">
         <div class="article">
-          <img width="1100px" class="gameImage" src="">
+          <img class="gameImage" src="">
           <h1 class="mt-3 title"></h1>
           <p class="release-date">Release date : <span></span></p>
           <div class="description"></div>
           <div class="mt-5 mb-5 row info">
-            <div  class="col-md-3">
+            <div  class="col-6 col-md-3">
               <h3>Release</h3>
               <p id="release"></p>
             </div>
-            <div class="col-md-3">
+            <div class="col-6 col-md-3">
               <h3>Developer</h3>
               <p id="developer"></p>
             </div>
-            <div  class="col-md-3">
+            <div  class="col-6 col-md-3">
               <h3>Plateform</h3>
               <p id="platform"></p>
             </div>
-            <div  class="col-md-3">
+            <div  class="col-6 col-md-3">
               <h3>Publisher</h3>
               <p id="publisher" ></p>
             </div>
           </div>
           <h2 class="mt-5"> TRAILERS</h2>
-          <video width="600px" controls><source id="trailer" src="" type="video/mp4"></video>
+          <video controls><source id="trailer" src="" type="video/mp4"></video>
           <h2 class="mt-5"> SCREENSHOTS </h2>
           <div class="row" id="screenshot"></div>
           <h2 class="mt-5"> YOUTUBE </h2>
