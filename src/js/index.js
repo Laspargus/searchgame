@@ -5,18 +5,29 @@ import "@fortawesome/fontawesome-free/js/solid";
 import PlatformSelect from "./PlatformSelect";
 import PageForm from "./PageForm";
 
-let pageArgument;
 const setRoute = () => {
+  let platform;
+  let developer;
   let path = window.location.hash.substring(1).split("/");
-  pageArgument = path[1] || "";
+  let pageArgument = path[1] || "";
+  if (path[1] && path[1].includes("?")) {
+    let cleanpath = path[1].split("?");
+
+    let queryString = cleanpath[1];
+    console.log(queryString);
+
+    const urlParams = new URLSearchParams(queryString);
+    platform = urlParams.get("platforms");
+    developer = urlParams.get("developers");
+    pageArgument = cleanpath[0];
+  }
 
   var pageContent = document.getElementById("pageContent");
-  routes[path[0]](pageArgument);
+  routes[path[0]](pageArgument, platform, developer);
 
-  console.log(path[0]);
-  PageForm();
+  PageForm(platform, developer);
   if (path[0] == "" || path[0] == "pagelist") {
-    PlatformSelect(pageArgument);
+    PlatformSelect(pageArgument, developer);
   }
   return true;
 };

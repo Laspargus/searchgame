@@ -1,6 +1,6 @@
 import PageList from "./PageList";
 
-const PlatformSelect = (argument) => {
+const PlatformSelect = (argument, developer) => {
   let select = document.querySelector("#selectplatform");
   select.innerHTML = `
   <form class="col-md-3 justify-content-start ml-1 mt-5 mb-5 row">
@@ -41,9 +41,8 @@ const PlatformSelect = (argument) => {
   const platformChoice = document.querySelector("#platform-choice");
 
   platformChoice.addEventListener("change", (event) => {
-    let platformId = platformChoice.value;
-    PageList(argument, platformId);
-    console.log("argument :", argument, "platforme ID:", platformId);
+    let platform = platformChoice.value;
+    PageList(argument, platform, developer);
   });
 };
 export default PlatformSelect;

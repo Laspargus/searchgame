@@ -34,9 +34,13 @@ const PageDetail = (argument) => {
           <a href="https://store.playstation.com/fr-fr/grid/search-game/1?query=${name}">Playstation Store </a>
           `;
 
-          articleDOM.querySelector("#developer").innerHTML = developers[0].name;
-          articleDOM.querySelector("#platform").innerHTML =
-            platforms[0].platform.name;
+          articleDOM.querySelector("#developer").innerHTML = `
+          <a href="/#pagelist/?developers=${developers[0].id}" >${developers[0].name}</a>
+          `;
+          articleDOM.querySelector("#platform").innerHTML = `
+          <a href="/#pagelist/?platforms=${platforms[0].platform.id}" > ${platforms[0].platform.name}</a>
+          `;
+
           articleDOM.querySelector("#publisher").innerHTML = publishers[0].name;
           tags.forEach((element) => {
             articleDOM.querySelector("div#screenshot").innerHTML += `

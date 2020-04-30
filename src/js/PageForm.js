@@ -1,6 +1,6 @@
 import PageList from "./PageList";
 
-const PageForm = () => {
+const PageForm = (platform, developer) => {
   form.innerHTML = `
     <form id="searchmovie" class="justify-content-end mt-5 mb-5 mr-1 row">
       <div class="input-group col-md-6 align-self-end">
@@ -23,7 +23,7 @@ const PageForm = () => {
 
   const geturl = () => {
     let contentSearch = document.querySelector("#movie-search").value;
-    PageList(contentSearch);
+    PageList(contentSearch, platform, developer);
   };
 };
 
