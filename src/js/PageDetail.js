@@ -35,10 +35,10 @@ const PageDetail = (argument) => {
           `;
 
           articleDOM.querySelector("#developer").innerHTML = `
-          <a href="/#pagelist/?developers=${developers[0].id}" >${developers[0].name}</a>
+          <a href="#pagelist/?developers=${developers[0].id}" >${developers[0].name}</a>
           `;
           articleDOM.querySelector("#platform").innerHTML = `
-          <a href="/#pagelist/?platforms=${platforms[0].platform.id}" > ${platforms[0].platform.name}</a>
+          <a href="#pagelist/?platforms=${platforms[0].platform.id}" > ${platforms[0].platform.name}</a>
           `;
 
           articleDOM.querySelector("#publisher").innerHTML = publishers[0].name;
