@@ -35,7 +35,7 @@ const PageDetail = (argument) => {
           `;
 
           articleDOM.querySelector("#developer").innerHTML = `
-          <a href="npm#pagelist/?developers=${developers[0].id}" >${developers[0].name}</a>
+          <a href="#pagelist/?developers=${developers[0].id}" >${developers[0].name}</a>
           `;
           articleDOM.querySelector("#platform").innerHTML = `
           <a href="#pagelist/?platforms=${platforms[0].platform.id}" > ${platforms[0].platform.name}</a>
@@ -77,7 +77,8 @@ const PageDetail = (argument) => {
             console.log(response.results[i].external_id);
             document.querySelector("#youtube").innerHTML += `
           <iframe
-            width="400"
+            width="350"
+            height="200"
             src="https://www.youtube.com/embed/${response.results[i].external_id}"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
