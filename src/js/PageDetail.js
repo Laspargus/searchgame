@@ -67,6 +67,27 @@ const PageDetail = (argument) => {
         });
     };
 
+    const fetchYoutube = (base, id, end) => {
+      fetch(`${base}${id}${end}`)
+        .then((response) => response.json())
+        .then((response) => {
+          console.log("youtube", response.results);
+          let maxvideo = Math.min(3, response.results.length);
+          for (let i = 0; i < maxvideo; i++) {
+            document.querySelector("#youtube").innerHTML += `
+          <iframe
+            width="300"
+            src="https://www.youtube.com/embed/${youtube.external_id}"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>`;
+          }
+        });
+    };
+
+    fetchYoutube("https://api.rawg.io/api/games/", cleanedArgument, "/youtube");
+
     fetchSimilarGame(
       "https://api.rawg.io/api/games/",
       cleanedArgument,
@@ -107,6 +128,8 @@ const PageDetail = (argument) => {
           <video width="600px" controls><source id="trailer" src="" type="video/mp4"></video>
           <h2 class="mt-5"> SCREENSHOTS </h2>
           <div class="row" id="screenshot"></div>
+          <h2 class="mt-5"> YOUTUBE </h2>
+          <div class="row" id="youtube"></div>
           <h2 class="mt-5"> BUY </h2>
           <p id="playstationlink"></p>
           <div id="buy"></div>
