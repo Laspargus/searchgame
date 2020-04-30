@@ -35,7 +35,7 @@ const PageDetail = (argument) => {
           `;
 
           articleDOM.querySelector("#developer").innerHTML = `
-          <a href="#pagelist/?developers=${developers[0].id}" >${developers[0].name}</a>
+          <a href="npm#pagelist/?developers=${developers[0].id}" >${developers[0].name}</a>
           `;
           articleDOM.querySelector("#platform").innerHTML = `
           <a href="#pagelist/?platforms=${platforms[0].platform.id}" > ${platforms[0].platform.name}</a>
@@ -74,10 +74,11 @@ const PageDetail = (argument) => {
           console.log("youtube", response.results);
           let maxvideo = Math.min(3, response.results.length);
           for (let i = 0; i < maxvideo; i++) {
+            console.log(response.results[i].external_id);
             document.querySelector("#youtube").innerHTML += `
           <iframe
-            width="300"
-            src="https://www.youtube.com/embed/${youtube.external_id}"
+            width="400"
+            src="https://www.youtube.com/embed/${response.results[i].external_id}"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
