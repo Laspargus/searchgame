@@ -8,6 +8,7 @@ import PageForm from "./PageForm";
 const setRoute = () => {
   let platform;
   let developer;
+  let page_size = 9;
   let path = window.location.hash.substring(1).split("/");
   let pageArgument = path[1] || "";
   if (path[1] && path[1].includes("?")) {
@@ -23,9 +24,10 @@ const setRoute = () => {
   }
 
   var pageContent = document.getElementById("pageContent");
-  routes[path[0]](pageArgument, platform, developer);
+  routes[path[0]](pageArgument, platform, developer, page_size);
 
   PageForm(platform, developer);
+
   if (path[0] == "" || path[0] == "pagelist") {
     PlatformSelect(pageArgument, developer);
   }

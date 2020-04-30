@@ -1,11 +1,17 @@
 //import GameHover from "./GameHover";
 
-const PageList = (argument = "", platforms = "", developers = "") => {
+const PageList = (
+  argument = "",
+  platforms = "",
+  developers = "",
+  page_size = 9
+) => {
   let pageContent = document.querySelector("#pageContent");
 
   console.log("argument:", argument);
   console.log("platformId:", platforms);
   console.log("developer:", developers);
+  console.log("page_size:", page_size);
 
   const preparePage = () => {
     let cleanedArgument = argument.replace(/\s+/g, "-");
@@ -34,7 +40,10 @@ const PageList = (argument = "", platforms = "", developers = "") => {
       fetch(`${finalURL}`)
         .then((response) => response.json())
         .then((response) => {
-          response.results.forEach((game) => {
+          let game;
+          let number = Math.min(page_size, response.results.length);
+          for (let i = 0; i < number; i++) {
+            game = response.results[i];
             articles += `
                 <div id="${game.id}" class="text-center col-sm-4 cardGame">
                   <a class="" href = "#pagedetail/${game.id}">
@@ -66,7 +75,24 @@ const PageList = (argument = "", platforms = "", developers = "") => {
                 card.innerHTML = `${savecontent}`;
               });
             });
-          });
+          }
+
+          if (page_size != 27) {
+            document.querySelector("#moreArticles").innerHTML = `
+            <button id="loadmore" class="btn btn-primary">See more</button
+            `;
+
+            let buttonMore = document.querySelector("#loadmore");
+            buttonMore.addEventListener("click", (event) => {
+              event.preventDefault();
+              if (page_size == 9) {
+                PageList(argument, platforms, developers, 18);
+              }
+              if (page_size == 18) {
+                PageList(argument, platforms, developers, 27);
+              }
+            });
+          }
         });
     };
 
@@ -77,6 +103,7 @@ const PageList = (argument = "", platforms = "", developers = "") => {
     pageContent.innerHTML = `
           <section class="page-list">
             <div class="articles row">...loading</div>
+            <div id="moreArticles" class="mt-5 text-center"></div>
           </section>
         `;
     preparePage();
