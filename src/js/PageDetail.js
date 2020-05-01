@@ -128,7 +128,7 @@ const PageDetail = (argument) => {
             </div>
           </div>
           <h2 class="mt-5"> TRAILERS</h2>
-          <video controls><source id="trailer" src="" type="video/mp4"></video>
+          <video controls id="trailer" src="" type="video/mp4"></video>
           <h2 class="mt-5"> SCREENSHOTS </h2>
           <div class="row" id="screenshot"></div>
           <h2 class="mt-5"> YOUTUBE </h2>
