@@ -11,15 +11,21 @@ const PageForm = (platform, developer) => {
           <input type="text" class="form-control" id="movie-search" placeholder="search Game..">
         </div>
       </div>
-      <button id="search-movie" type="submit" class="btn btn-primary">Go</button>
+      
     </form>
         `;
+  //<button id="search-movie" type="submit" class="btn btn-primary">Go</button>
+  // let button = document.querySelector("#search-movie");
+  // button.addEventListener("click", (event) => {
+  //   event.preventDefault();
+  //   geturl();
+  // });
 
-  let button = document.querySelector("#search-movie");
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    geturl();
-  });
+  document
+    .querySelector("input[type='text']")
+    .addEventListener("input", function () {
+      PageList(this.value, platform, developer);
+    });
 
   const geturl = () => {
     let contentSearch = document.querySelector("#movie-search").value;
